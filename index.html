@@ -33,435 +33,182 @@
   </head>
   <body>
     <div><h1>flutter缓动曲线</h1></div>
+    <div class="display-area" id="video-container"></div>
 
-    <div class="display-area">
-      <div class="video-container">
-        <h3>curve_fast_linear_to_slow_ease_in</h3>
-        <video autoplay loop muted playsinline>
-          <source
-            src="https://flutter.github.io/assets-for-api-docs/assets/animation/curve_fast_linear_to_slow_ease_in.mp4"
-            type="video/mp4"
-          />
-          Your browser does not support the video tag.
-        </video>
-      </div>
+    <script>
+      const videos = [
+        {
+          title: "curve_fast_linear_to_slow_ease_in",
+          src: "https://flutter.github.io/assets-for-api-docs/assets/animation/curve_fast_linear_to_slow_ease_in.mp4",
+        },
+        {
+          title: "curve_ease",
+          src: "https://flutter.github.io/assets-for-api-docs/assets/animation/curve_ease.mp4",
+        },
+        {
+          title: "curve_ease_in",
+          src: "https://flutter.github.io/assets-for-api-docs/assets/animation/curve_ease_in.mp4",
+        },
+        {
+          title: "curve_ease_in_to_linear",
+          src: "https://flutter.github.io/assets-for-api-docs/assets/animation/curve_ease_in_to_linear.mp4",
+        },
+        {
+          title: "curve_ease_in_sine",
+          src: "https://flutter.github.io/assets-for-api-docs/assets/animation/curve_ease_in_sine.mp4",
+        },
+        {
+          title: "curve_ease_in_quad",
+          src: "https://flutter.github.io/assets-for-api-docs/assets/animation/curve_ease_in_quad.mp4",
+        },
+        {
+          title: "curve_ease_in_cubic",
+          src: "https://flutter.github.io/assets-for-api-docs/assets/animation/curve_ease_in_cubic.mp4",
+        },
+        {
+          title: "curve_ease_in_quart",
+          src: "https://flutter.github.io/assets-for-api-docs/assets/animation/curve_ease_in_quart.mp4",
+        },
+        {
+          title: "curve_ease_in_quint",
+          src: "https://flutter.github.io/assets-for-api-docs/assets/animation/curve_ease_in_quint.mp4",
+        },
+        {
+          title: "curve_ease_in_expo",
+          src: "https://flutter.github.io/assets-for-api-docs/assets/animation/curve_ease_in_expo.mp4",
+        },
+        {
+          title: "curve_ease_in_circ",
+          src: "https://flutter.github.io/assets-for-api-docs/assets/animation/curve_ease_in_circ.mp4",
+        },
+        {
+          title: "curve_ease_in_back",
+          src: "https://flutter.github.io/assets-for-api-docs/assets/animation/curve_ease_in_back.mp4",
+        },
+        {
+          title: "curve_ease_out",
+          src: "https://flutter.github.io/assets-for-api-docs/assets/animation/curve_ease_out.mp4",
+        },
+        {
+          title: "curve_linear",
+          src: "https://flutter.github.io/assets-for-api-docs/assets/animation/curve_linear.mp4",
+        },
+        {
+          title: "curve_linear_to_ease_out",
+          src: "https://flutter.github.io/assets-for-api-docs/assets/animation/curve_linear_to_ease_out.mp4",
+        },
+        {
+          title: "curve_ease_out_sine",
+          src: "https://flutter.github.io/assets-for-api-docs/assets/animation/curve_ease_out_sine.mp4",
+        },
+        {
+          title: "curve_ease_out_quad",
+          src: "https://flutter.github.io/assets-for-api-docs/assets/animation/curve_ease_out_quad.mp4",
+        },
+        {
+          title: "curve_ease_out_cubic",
+          src: "https://flutter.github.io/assets-for-api-docs/assets/animation/curve_ease_out_cubic.mp4",
+        },
+        {
+          title: "curve_ease_out_quart",
+          src: "https://flutter.github.io/assets-for-api-docs/assets/animation/curve_ease_out_quart.mp4",
+        },
+        {
+          title: "curve_ease_out_quint",
+          src: "https://flutter.github.io/assets-for-api-docs/assets/animation/curve_ease_out_quint.mp4",
+        },
+        {
+          title: "curve_ease_out_expo",
+          src: "https://flutter.github.io/assets-for-api-docs/assets/animation/curve_ease_out_expo.mp4",
+        },
+        {
+          title: "curve_ease_out_circ",
+          src: "https://flutter.github.io/assets-for-api-docs/assets/animation/curve_ease_out_circ.mp4",
+        },
+        {
+          title: "curve_ease_out_back",
+          src: "https://flutter.github.io/assets-for-api-docs/assets/animation/curve_ease_out_back.mp4",
+        },
+        {
+          title: "curve_ease_in_out",
+          src: "https://flutter.github.io/assets-for-api-docs/assets/animation/curve_ease_in_out.mp4",
+        },
+        {
+          title: "curve_ease_in_out_sine",
+          src: "https://flutter.github.io/assets-for-api-docs/assets/animation/curve_ease_in_out_sine.mp4",
+        },
+        {
+          title: "curve_ease_in_out_quad",
+          src: "https://flutter.github.io/assets-for-api-docs/assets/animation/curve_ease_in_out_quad.mp4",
+        },
+        {
+          title: "curve_ease_in_out_cubic",
+          src: "https://flutter.github.io/assets-for-api-docs/assets/animation/curve_ease_in_out_cubic.mp4",
+        },
+        {
+          title: "curve_ease_in_out_quart",
+          src: "https://flutter.github.io/assets-for-api-docs/assets/animation/curve_ease_in_out_quart.mp4",
+        },
+        {
+          title: "curve_ease_in_out_quint",
+          src: "https://flutter.github.io/assets-for-api-docs/assets/animation/curve_ease_in_out_quint.mp4",
+        },
+        {
+          title: "curve_ease_in_out_expo",
+          src: "https://flutter.github.io/assets-for-api-docs/assets/animation/curve_ease_in_out_expo.mp4",
+        },
+        {
+          title: "curve_ease_in_out_circ",
+          src: "https://flutter.github.io/assets-for-api-docs/assets/animation/curve_ease_in_out_circ.mp4",
+        },
+        {
+          title: "curve_ease_in_out_back",
+          src: "https://flutter.github.io/assets-for-api-docs/assets/animation/curve_ease_in_out_back.mp4",
+        },
+        {
+          title: "curve_fast_out_slow_in",
+          src: "https://flutter.github.io/assets-for-api-docs/assets/animation/curve_fast_out_slow_in.mp4",
+        },
+        {
+          title: "curve_slow_middle",
+          src: "https://flutter.github.io/assets-for-api-docs/assets/animation/curve_slow_middle.mp4",
+        },
+        {
+          title: "curve_bounce_in",
+          src: "https://flutter.github.io/assets-for-api-docs/assets/animation/curve_bounce_in.mp4",
+        },
+        {
+          title: "curve_flipped",
+          src: "https://flutter.github.io/assets-for-api-docs/assets/animation/curve_flipped.mp4",
+        },
+        {
+          title: "curve_elastic_in",
+          src: "https://flutter.github.io/assets-for-api-docs/assets/animation/curve_elastic_in.mp4",
+        },
+        {
+          title: "curve_elastic_out",
+          src: "https://flutter.github.io/assets-for-api-docs/assets/animation/curve_elastic_out.mp4",
+        },
+        {
+          title: "curve_elastic_in_out",
+          src: "https://flutter.github.io/assets-for-api-docs/assets/animation/curve_elastic_in_out.mp4",
+        },
+      ];
 
-      <div class="video-container">
-        <h3>curve_ease</h3>
-        <video autoplay loop muted playsinline>
-          <source
-            src="https://flutter.github.io/assets-for-api-docs/assets/animation/curve_ease.mp4"
-            type="video/mp4"
-          />
-          Your browser does not support the video tag.
-        </video>
-      </div>
+      const container = document.getElementById("video-container");
 
-      <div class="video-container">
-        <h3>curve_ease_in</h3>
-        <video autoplay loop muted playsinline>
-          <source
-            src="https://flutter.github.io/assets-for-api-docs/assets/animation/curve_ease_in.mp4"
-            type="video/mp4"
-          />
-          Your browser does not support the video tag.
-        </video>
-      </div>
-
-      <div class="video-container">
-        <h3>curve_ease_in_to_linear</h3>
-        <video autoplay loop muted playsinline>
-          <source
-            src="https://flutter.github.io/assets-for-api-docs/assets/animation/curve_ease_in_to_linear.mp4"
-            type="video/mp4"
-          />
-          Your browser does not support the video tag.
-        </video>
-      </div>
-
-      <div class="video-container">
-        <h3>curve_ease_in_sine</h3>
-        <video autoplay loop muted playsinline>
-          <source
-            src="https://flutter.github.io/assets-for-api-docs/assets/animation/curve_ease_in_sine.mp4"
-            type="video/mp4"
-          />
-          Your browser does not support the video tag.
-        </video>
-      </div>
-
-      <div class="video-container">
-        <h3>curve_ease_in_quad</h3>
-        <video autoplay loop muted playsinline>
-          <source
-            src="https://flutter.github.io/assets-for-api-docs/assets/animation/curve_ease_in_quad.mp4"
-            type="video/mp4"
-          />
-          Your browser does not support the video tag.
-        </video>
-      </div>
-
-      <div class="video-container">
-        <h3>curve_ease_in_cubic</h3>
-        <video autoplay loop muted playsinline>
-          <source
-            src="https://flutter.github.io/assets-for-api-docs/assets/animation/curve_ease_in_cubic.mp4"
-            type="video/mp4"
-          />
-          Your browser does not support the video tag.
-        </video>
-      </div>
-
-      <div class="video-container">
-        <h3>curve_ease_in_quart</h3>
-        <video autoplay loop muted playsinline>
-          <source
-            src="https://flutter.github.io/assets-for-api-docs/assets/animation/curve_ease_in_quart.mp4"
-            type="video/mp4"
-          />
-          Your browser does not support the video tag.
-        </video>
-      </div>
-
-      <div class="video-container">
-        <h3>curve_ease_in_quint</h3>
-        <video autoplay loop muted playsinline>
-          <source
-            src="https://flutter.github.io/assets-for-api-docs/assets/animation/curve_ease_in_quint.mp4"
-            type="video/mp4"
-          />
-          Your browser does not support the video tag.
-        </video>
-      </div>
-
-      <div class="video-container">
-        <h3>curve_ease_in_expo</h3>
-        <video autoplay loop muted playsinline>
-          <source
-            src="https://flutter.github.io/assets-for-api-docs/assets/animation/curve_ease_in_expo.mp4"
-            type="video/mp4"
-          />
-          Your browser does not support the video tag.
-        </video>
-      </div>
-
-      <div class="video-container">
-        <h3>curve_ease_in_circ</h3>
-        <video autoplay loop muted playsinline>
-          <source
-            src="https://flutter.github.io/assets-for-api-docs/assets/animation/curve_ease_in_circ.mp4"
-            type="video/mp4"
-          />
-          Your browser does not support the video tag.
-        </video>
-      </div>
-
-      <div class="video-container">
-        <h3>curve_ease_in_back</h3>
-        <video autoplay loop muted playsinline>
-          <source
-            src="https://flutter.github.io/assets-for-api-docs/assets/animation/curve_ease_in_back.mp4"
-            type="video/mp4"
-          />
-          Your browser does not support the video tag.
-        </video>
-      </div>
-
-      <div class="video-container">
-        <h3>curve_ease_out</h3>
-        <video autoplay loop muted playsinline>
-          <source
-            src="https://flutter.github.io/assets-for-api-docs/assets/animation/curve_ease_out.mp4"
-            type="video/mp4"
-          />
-          Your browser does not support the video tag.
-        </video>
-      </div>
-
-      <div class="video-container">
-        <h3>curve_linear</h3>
-        <video autoplay loop muted playsinline>
-          <source
-            src="https://flutter.github.io/assets-for-api-docs/assets/animation/curve_linear.mp4"
-            type="video/mp4"
-          />
-          Your browser does not support the video tag.
-        </video>
-      </div>
-
-      <div class="video-container">
-        <h3>curve_linear_to_ease_out</h3>
-        <video autoplay loop muted playsinline>
-          <source
-            src="https://flutter.github.io/assets-for-api-docs/assets/animation/curve_linear_to_ease_out.mp4"
-            type="video/mp4"
-          />
-          Your browser does not support the video tag.
-        </video>
-      </div>
-
-      <div class="video-container">
-        <h3>curve_ease_out_sine</h3>
-        <video autoplay loop muted playsinline>
-          <source
-            src="https://flutter.github.io/assets-for-api-docs/assets/animation/curve_ease_out_sine.mp4"
-            type="video/mp4"
-          />
-          Your browser does not support the video tag.
-        </video>
-      </div>
-
-      <div class="video-container">
-        <h3>curve_ease_out_quad</h3>
-        <video autoplay loop muted playsinline>
-          <source
-            src="https://flutter.github.io/assets-for-api-docs/assets/animation/curve_ease_out_quad.mp4"
-            type="video/mp4"
-          />
-          Your browser does not support the video tag.
-        </video>
-      </div>
-
-      <div class="video-container">
-        <h3>curve_ease_out_cubic</h3>
-        <video autoplay loop muted playsinline>
-          <source
-            src="https://flutter.github.io/assets-for-api-docs/assets/animation/curve_ease_out_cubic.mp4"
-            type="video/mp4"
-          />
-          Your browser does not support the video tag.
-        </video>
-      </div>
-
-      <div class="video-container">
-        <h3>curve_ease_out_quart</h3>
-        <video autoplay loop muted playsinline>
-          <source
-            src="https://flutter.github.io/assets-for-api-docs/assets/animation/curve_ease_out_quart.mp4"
-            type="video/mp4"
-          />
-          Your browser does not support the video tag.
-        </video>
-      </div>
-
-      <div class="video-container">
-        <h3>curve_ease_out_quint</h3>
-        <video autoplay loop muted playsinline>
-          <source
-            src="https://flutter.github.io/assets-for-api-docs/assets/animation/curve_ease_out_quint.mp4"
-            type="video/mp4"
-          />
-          Your browser does not support the video tag.
-        </video>
-      </div>
-
-      <div class="video-container">
-        <h3>curve_ease_out_expo</h3>
-        <video autoplay loop muted playsinline>
-          <source
-            src="https://flutter.github.io/assets-for-api-docs/assets/animation/curve_ease_out_expo.mp4"
-            type="video/mp4"
-          />
-          Your browser does not support the video tag.
-        </video>
-      </div>
-
-      <div class="video-container">
-        <h3>curve_ease_out_circ</h3>
-        <video autoplay loop muted playsinline>
-          <source
-            src="https://flutter.github.io/assets-for-api-docs/assets/animation/curve_ease_out_circ.mp4"
-            type="video/mp4"
-          />
-          Your browser does not support the video tag.
-        </video>
-      </div>
-
-      <div class="video-container">
-        <h3>curve_ease_out_back</h3>
-        <video autoplay loop muted playsinline>
-          <source
-            src="https://flutter.github.io/assets-for-api-docs/assets/animation/curve_ease_out_back.mp4"
-            type="video/mp4"
-          />
-          Your browser does not support the video tag.
-        </video>
-      </div>
-
-      <div class="video-container">
-        <h3>curve_ease_in_out</h3>
-        <video autoplay loop muted playsinline>
-          <source
-            src="https://flutter.github.io/assets-for-api-docs/assets/animation/curve_ease_in_out.mp4"
-            type="video/mp4"
-          />
-          Your browser does not support the video tag.
-        </video>
-      </div>
-
-      <div class="video-container">
-        <h3>curve_ease_in_out_sine</h3>
-        <video autoplay loop muted playsinline>
-          <source
-            src="https://flutter.github.io/assets-for-api-docs/assets/animation/curve_ease_in_out_sine.mp4"
-            type="video/mp4"
-          />
-          Your browser does not support the video tag.
-        </video>
-      </div>
-
-      <div class="video-container">
-        <h3>curve_ease_in_out_quad</h3>
-        <video autoplay loop muted playsinline>
-          <source
-            src="https://flutter.github.io/assets-for-api-docs/assets/animation/curve_ease_in_out_quad.mp4"
-            type="video/mp4"
-          />
-          Your browser does not support the video tag.
-        </video>
-      </div>
-
-      <div class="video-container">
-        <h3>curve_ease_in_out_cubic</h3>
-        <video autoplay loop muted playsinline>
-          <source
-            src="https://flutter.github.io/assets-for-api-docs/assets/animation/curve_ease_in_out_cubic.mp4"
-            type="video/mp4"
-          />
-          Your browser does not support the video tag.
-        </video>
-      </div>
-
-      <div class="video-container">
-        <h3>curve_ease_in_out_quart</h3>
-        <video autoplay loop muted playsinline>
-          <source
-            src="https://flutter.github.io/assets-for-api-docs/assets/animation/curve_ease_in_out_quart.mp4"
-            type="video/mp4"
-          />
-          Your browser does not support the video tag.
-        </video>
-      </div>
-
-      <div class="video-container">
-        <h3>curve_ease_in_out_quint</h3>
-        <video autoplay loop muted playsinline>
-          <source
-            src="https://flutter.github.io/assets-for-api-docs/assets/animation/curve_ease_in_out_quint.mp4"
-            type="video/mp4"
-          />
-          Your browser does not support the video tag.
-        </video>
-      </div>
-
-      <div class="video-container">
-        <h3>curve_ease_in_out_expo</h3>
-        <video autoplay loop muted playsinline>
-          <source
-            src="https://flutter.github.io/assets-for-api-docs/assets/animation/curve_ease_in_out_expo.mp4"
-            type="video/mp4"
-          />
-          Your browser does not support the video tag.
-        </video>
-      </div>
-
-      <div class="video-container">
-        <h3>curve_ease_in_out_circ</h3>
-        <video autoplay loop muted playsinline>
-          <source
-            src="https://flutter.github.io/assets-for-api-docs/assets/animation/curve_ease_in_out_circ.mp4"
-            type="video/mp4"
-          />
-          Your browser does not support the video tag.
-        </video>
-      </div>
-
-      <div class="video-container">
-        <h3>curve_ease_in_out_back</h3>
-        <video autoplay loop muted playsinline>
-          <source
-            src="https://flutter.github.io/assets-for-api-docs/assets/animation/curve_ease_in_out_back.mp4"
-            type="video/mp4"
-          />
-          Your browser does not support the video tag.
-        </video>
-      </div>
-
-      <div class="video-container">
-        <h3>curve_fast_out_slow_in</h3>
-        <video autoplay loop muted playsinline>
-          <source
-            src="https://flutter.github.io/assets-for-api-docs/assets/animation/curve_fast_out_slow_in.mp4"
-            type="video/mp4"
-          />
-          Your browser does not support the video tag.
-        </video>
-      </div>
-
-      <div class="video-container">
-        <h3>curve_slow_middle</h3>
-        <video autoplay loop muted playsinline>
-          <source
-            src="https://flutter.github.io/assets-for-api-docs/assets/animation/curve_slow_middle.mp4"
-            type="video/mp4"
-          />
-          Your browser does not support the video tag.
-        </video>
-      </div>
-
-      <div class="video-container">
-        <h3>curve_bounce_in</h3>
-        <video autoplay loop muted playsinline>
-          <source
-            src="https://flutter.github.io/assets-for-api-docs/assets/animation/curve_bounce_in.mp4"
-            type="video/mp4"
-          />
-          Your browser does not support the video tag.
-        </video>
-      </div>
-
-      <div class="video-container">
-        <h3>curve_flipped</h3>
-        <video autoplay loop muted playsinline>
-          <source
-            src="https://flutter.github.io/assets-for-api-docs/assets/animation/curve_flipped.mp4"
-            type="video/mp4"
-          />
-          Your browser does not support the video tag.
-        </video>
-      </div>
-
-      <div class="video-container">
-        <h3>curve_elastic_in</h3>
-        <video autoplay loop muted playsinline>
-          <source
-            src="https://flutter.github.io/assets-for-api-docs/assets/animation/curve_elastic_in.mp4"
-            type="video/mp4"
-          />
-          Your browser does not support the video tag.
-        </video>
-      </div>
-      <div class="video-container">
-        <h3>curve_elastic_out</h3>
-        <video autoplay loop muted playsinline>
-          <source
-            src="https://flutter.github.io/assets-for-api-docs/assets/animation/curve_elastic_out.mp4"
-            type="video/mp4"
-          />
-          Your browser does not support the video tag.
-        </video>
-      </div>
-
-      <div class="video-container">
-        <h3>ccurve_elastic_in_out</h3>
-        <video autoplay loop muted playsinline>
-          <source
-            src="https://flutter.github.io/assets-for-api-docs/assets/animation/curve_elastic_in_out.mp4"
-            type="video/mp4"
-          />
-          Your browser does not support the video tag.
-        </video>
-      </div>
-    </div>
+      videos.forEach((video) => {
+        const videoElement = `
+        <div class="video-container">
+          <h3>${video.title}</h3>
+          <video autoplay loop muted playsinline>
+            <source src="${video.src}" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      `;
+        container.innerHTML += videoElement;
+      });
+    </script>
   </body>
 </html>
